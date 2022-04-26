@@ -46,6 +46,10 @@ parser.on('data', (data) => {
     if (no < 20){
         ioServer.emit('cambio', "restar");
     }
+
+    if (jump < 60){
+        ioServer.emit('verifica', "cambioPantalla");
+    }
     
 
     /*console.log(data, toString());

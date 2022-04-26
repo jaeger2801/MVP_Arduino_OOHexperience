@@ -58,12 +58,31 @@ function draw() {
         case 3:
         //Pantalla para indicar que la persona se pare en el tapete
         //---------------------------------------------------------------------------------------------------------
+
+        
+        socket.on('verifica', () => {
+            pantalla = 4
+            
+        })
+
             fill(75, 74, 232);
             rect(0, 0, 1560, 720);
 
             fill(255);
             textSize(50);
             text('Pantalla que indica que la persona se pare en el tapete', 50, 100);
+            break;
+
+        case 4:
+        //Pantalla para indicar que la persona está parada en el tapete
+        //---------------------------------------------------------------------------------------------------------
+            
+            fill(75, 74, 232);
+            rect(0, 0, 1560, 720);
+        
+            fill(255);
+            textSize(50);
+            text('ok, todo está en orden', 50, 100);
             break;
     
     }
@@ -87,6 +106,9 @@ socket.on('cambio', (pantallaC) => {
      }
     console.log(pantallaC);
 })
+
+
+   
 
 
 
