@@ -37,7 +37,7 @@ parser.on('data', (data) => {
     let si = parseInt(dataArray[0]);
     let no = parseInt(dataArray[1]);
     let verify = parseInt(dataArray[2]);
-    let jump = parseInt(dataArray[3]);
+    let jump = parseInt(dataArray[2]);
 
 
     if (si < 20){
@@ -50,6 +50,10 @@ parser.on('data', (data) => {
 
     if (verify < 60){
         ioServer.emit('verifica', "cambioPantalla");
+    }
+
+    if (jump < 60){
+        ioServer.emit('skipping', "cuentaSkipping");
     }
     
 

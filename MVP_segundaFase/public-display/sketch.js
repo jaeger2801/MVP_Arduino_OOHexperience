@@ -4,7 +4,7 @@
 
 let socket = io();
 let pantalla;
-let contador;
+let contadorSkipping;
 
 //variable para la implementación de una barra de carga
 let ancho;
@@ -16,7 +16,7 @@ function setup() {
     createCanvas(1920, 1080);
 
     pantalla = 0;
-    contador = 0;
+    contadorSkipping = 0;
     ancho = 100;
     timer = 5
 
@@ -28,7 +28,8 @@ function draw() {
     switch (pantalla) {
         //Pantalla presentación producto y experiencia 1
         //---------------------------------------------------------------------------------------------------------
-        case 0:
+        case 0: 
+            
             
             fill(255, 164, 162);
             rect(0, 0, 1920, 1080);
@@ -41,6 +42,8 @@ function draw() {
         //Pantalla presentación producto y experiencia 2
         //---------------------------------------------------------------------------------------------------------
         case 1:
+
+
             fill(0);
             rect(0, 0, 1920, 1080);
 
@@ -53,6 +56,8 @@ function draw() {
             
         //Pantalla para dar las Instrucciones del juego
         //---------------------------------------------------------------------------------------------------------
+            
+
             fill(219, 68, 109);
             rect(0, 0, 1920, 1080);
 
@@ -71,8 +76,6 @@ function draw() {
             pantalla = 4
         })
 
-        
-
             fill(75, 74, 232);
             rect(0, 0, 1920, 1080);
 
@@ -84,7 +87,8 @@ function draw() {
         case 4:
         //Pantalla para indicar que la persona está parada en el tapete
         //---------------------------------------------------------------------------------------------------------
-            
+          
+
             fill(75, 74, 232);
             rect(0, 0, 1920, 1080);
         
@@ -129,7 +133,7 @@ function draw() {
                 socket.off('verifica') 
             }
 
-            
+           
             fill(0, 74, 232);
             rect(0, 0, 1920, 1080);
 
@@ -137,10 +141,17 @@ function draw() {
             textSize(50);
             text('Aqui sucede el juego', 50, 100);
 
+            //texto que registra el skipping del jugador
+            fill(255);
+            textSize(150);
+            text(contadorSkipping, 1920/2-35, 1080/2+80);
+
+            
             break;
 
             
     }
+    console.log(contadorSkipping);
 }
 
 
@@ -162,6 +173,12 @@ socket.on('cambio', (pantallaC) => {
     console.log(pantallaC);
 })
 
+//función de socket que tiene como función contar la cantidad de repeticiones que hace el jugador
+if(pantalla = 5){
+socket.on('skipping', () => {
+    contadorSkipping += 1;
+})
+}
 
    
 
