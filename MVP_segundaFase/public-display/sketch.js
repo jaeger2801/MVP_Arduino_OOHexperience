@@ -1,20 +1,24 @@
 //const { redirect } = require("express/lib/response");
 
-
-
 //const { text } = require("express"); <--- dejo esto comentado, siempre que se crea un texto se crea esto que daña el código
 
 let socket = io();
 let pantalla;
 let contador;
 
+//variable para la implementación de una barra de carga
+let ancho;
+let timer;
+
 
 function setup() {
     frameRate(60);
-    createCanvas(1560, 720);
+    createCanvas(1920, 1080);
 
     pantalla = 0;
     contador = 0;
+    ancho = 100;
+    timer = 5
 
 }
 
@@ -27,17 +31,18 @@ function draw() {
         case 0:
             
             fill(255, 164, 162);
-            rect(0, 0, 1560, 720);
+            rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
             text('Pantalla para presentación producto y experiencia 1', 50, 100);
             break;
+
         //Pantalla presentación producto y experiencia 2
         //---------------------------------------------------------------------------------------------------------
         case 1:
             fill(0);
-            rect(0, 0, 1560, 720);
+            rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
@@ -45,10 +50,11 @@ function draw() {
             break;
         
         case 2:
+            
         //Pantalla para dar las Instrucciones del juego
         //---------------------------------------------------------------------------------------------------------
             fill(219, 68, 109);
-            rect(0, 0, 1560, 720);
+            rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
@@ -56,17 +62,19 @@ function draw() {
             break;
 
         case 3:
+
         //Pantalla para indicar que la persona se pare en el tapete
         //---------------------------------------------------------------------------------------------------------
 
-        
+        //función de socket que solo funciona en esta pantalla para la verificación de que la persona está en el tapete
         socket.on('verifica', () => {
             pantalla = 4
-            
         })
 
+        
+
             fill(75, 74, 232);
-            rect(0, 0, 1560, 720);
+            rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
@@ -78,13 +86,60 @@ function draw() {
         //---------------------------------------------------------------------------------------------------------
             
             fill(75, 74, 232);
-            rect(0, 0, 1560, 720);
+            rect(0, 0, 1920, 1080);
         
             fill(255);
             textSize(50);
-            text('ok, todo está en orden', 50, 100);
+            text('pantalla indica, todo está en orden, conteo regresivo', 50, 100);
+
+            //barra de carga
+            fill(255);
+            textSize(150);
+            text(timer, 1920/2-35, 1080/2+80);
+
+            if(frameCount%65 == 0){
+                ancho -= 20;
+                
+                if(ancho <= 80){
+                    timer = 4;
+                }
+
+                if(ancho <= 60){
+                    timer = 3;
+                }
+
+                if(ancho <= 40){
+                    timer = 2;
+                }
+
+                if(ancho <= 20){
+                    timer = 1;
+                }
+
+                if(ancho <= 0){
+                    pantalla = 5
+                }
+            }
             break;
-    
+        
+        case 5:
+
+        //pantalla donde se ejecuta el juego
+            if(pantalla = 5){
+                socket.off('verifica') 
+            }
+
+            
+            fill(0, 74, 232);
+            rect(0, 0, 1920, 1080);
+
+            fill(255);
+            textSize(50);
+            text('Aqui sucede el juego', 50, 100);
+
+            break;
+
+            
     }
 }
 
