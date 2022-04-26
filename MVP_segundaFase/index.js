@@ -21,7 +21,7 @@ ioServer.on('connection', (socket) => {
 //------------------------------------------------this opens a port
 
 const protocolConfiguration = {
-    path: 'COM9',
+    path: 'COM4',
     baudRate: 9600
 }
 
@@ -32,7 +32,7 @@ const parser = port.pipe(new ReadlineParser());
 parser.on('data', (data) => {
 
     let dataArray = data.split(' ');
-    console.log(dataArray);
+    //console.log(dataArray);
 
     let si = parseInt(dataArray[0]);
     let no = parseInt(dataArray[1]);
