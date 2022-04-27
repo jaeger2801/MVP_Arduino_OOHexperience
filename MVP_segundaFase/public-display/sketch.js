@@ -20,6 +20,11 @@ let juego //pantalla 5
 let feedback //pantalla 6
 let agradecimiento //pantalla 7
 
+//carga de sonidos
+let siguientePantalla;
+let anteriorPantalla;
+let ejercicioFeedback;
+
 
 function setup() {
     frameRate(60);
@@ -44,7 +49,10 @@ function preload() {
     feedback = loadImage('data/Feedback (pantalla 6).png');
     agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
 
-    //sonidoFeedback('')
+    //carga de sonidos
+    siguientePantalla = loadSound('');
+    anteriorPantalla = loadSound('');
+    ejercicioFeedback = loadSound('');
     
 }
 
@@ -238,8 +246,8 @@ function draw() {
             fill(235,144,45);
             noStroke();
             textSize(60);
-            text(contadorSkipping*120/100, 601, 624);
-            text('Métros recorridos', 690, 624);
+            text(contadorSkipping*14, 749, 785);
+            text('Pasos realizados', 838, 785);
 
             
                 break;
