@@ -28,6 +28,7 @@ function setup() {
     pantalla = 5;
     contadorSkipping = 0;
     ancho = 100;
+    ancho2 = 400
     timer = 5
 
 }
@@ -155,8 +156,8 @@ function draw() {
             break;
         
         case 5:
-
         //pantalla donde se ejecuta el juego
+        //--------------------------------------------------------------------------------------
             if(pantalla = 5){
                 socket.off('verifica') 
             }
@@ -190,7 +191,7 @@ function draw() {
             //barra de carga solid
             fill(167,60,153);
             noStroke();
-            rect(1920-550, 1080/2+250, ancho+300, 50, 50);
+            rect(1920-550, 1080/2+250, ancho2, 50, 50);
 
              //barra de carga stroke
              noFill();
@@ -200,11 +201,50 @@ function draw() {
 
              //framecount para el tiempo de carga
              if(frameCount%67 == 0) {
-                 ancho -= 14;
+                 ancho2 -= 14;
+             }
+
+             if(ancho2 <= 0 ){
+                 pantalla = 6;
              }
              
             
             break;
+
+            case 6:
+            //pantalla donde se dan los resultados
+            //--------------------------------------------------------------------------------------
+
+            image(feedback, 0, 0);
+
+            //calorias quemadas
+            //1 repetición haciendo skiping representa 0.29 cal quemadas
+            fill(235,144,45);
+            noStroke();
+            textSize(60);
+            text(contadorSkipping*2, 444, 480);
+            text('Calorías quemadas', 522, 480);
+
+            //metros recorridos,
+            //en cada repetición se recorren 120 cm, aqui se hace la conversión a metros con base a las repeticiones
+            fill(235,144,45);
+            noStroke();
+            textSize(60);
+            text(contadorSkipping*120/100, 601, 624);
+            text('Métros recorridos', 690, 624);
+
+            //pasos dados
+            //14 pasos por repetición aproximadamente
+            fill(235,144,45);
+            noStroke();
+            textSize(60);
+            text(contadorSkipping*120/100, 601, 624);
+            text('Métros recorridos', 690, 624);
+
+            
+                break;
+
+            
 
             
     }
