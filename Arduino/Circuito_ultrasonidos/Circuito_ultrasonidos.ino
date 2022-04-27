@@ -50,7 +50,7 @@ void loop() {
   duracionYes = pulseIn(ecoYes, HIGH);
   distanciaYes = duracionYes / 58.2;
   Serial.print(distanciaYes);
-  delay(50);
+  delay(300);
 
   //--------------------------------------------------------------------------------------------------
   //Configuracion para medir la distancia del sensor "no"
@@ -62,7 +62,7 @@ void loop() {
   distanciaNo = duracionNo / 58.2;
   Serial.print(' ');
   Serial.print(distanciaNo);
-  delay(50);
+  delay(300);
 
   //--------------------------------------------------------------------------------------------------
   //Configuracion para medir la distancia del sensor "jump"

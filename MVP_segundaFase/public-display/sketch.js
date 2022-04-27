@@ -55,9 +55,9 @@ function draw() {
         //---------------------------------------------------------------------------------------------------------
         case 0: 
             
-            
-            fill(255, 164, 162);
-            rect(0, 0, 1920, 1080);
+            image(presentacionProducto, 0, 0);
+            /* fill(255, 164, 162);
+            rect(0, 0, 1920, 1080); */
 
             fill(255);
             textSize(50);
@@ -68,13 +68,13 @@ function draw() {
         //---------------------------------------------------------------------------------------------------------
         case 1:
 
+            image(presentacionExperiencia, 0, 0);
+           /*  fill(0);
+            rect(0, 0, 1920, 1080); */
 
-            fill(0);
-            rect(0, 0, 1920, 1080);
-
-            fill(255);
+            /* fill(255);
             textSize(50);
-            text('Pantalla para presentación producto y experiencia 2', 50, 100);
+            text('Pantalla para presentación producto y experiencia 2', 50, 100); */
             break;
         
         case 2:
@@ -82,13 +82,13 @@ function draw() {
         //Pantalla para dar las Instrucciones del juego
         //---------------------------------------------------------------------------------------------------------
             
+            image(instruciones,0 ,0);
+            /* fill(219, 68, 109);
+            rect(0, 0, 1920, 1080); */
 
-            fill(219, 68, 109);
-            rect(0, 0, 1920, 1080);
-
-            fill(255);
+           /*  fill(255);
             textSize(50);
-            text('Pantalla para la presentación de las instruciones', 50, 100)
+            text('Pantalla para la presentación de las instruciones', 50, 100) */
             break;
 
         case 3:
@@ -101,28 +101,31 @@ function draw() {
             pantalla = 4
         })
 
-            fill(75, 74, 232);
+        image(indicativoTapete, 0, 0);
+
+            /* fill(75, 74, 232);
             rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
-            text('Pantalla que indica que la persona se pare en el tapete', 50, 100);
+            text('Pantalla que indica que la persona se pare en el tapete', 50, 100); */
             break;
 
         case 4:
         //Pantalla para indicar que la persona está parada en el tapete
         //---------------------------------------------------------------------------------------------------------
           
+        image(indicativoPreparación,0,0);
 
-            fill(75, 74, 232);
-            rect(0, 0, 1920, 1080);
+           /*  fill(75, 74, 232);
+            rect(0, 0, 1920, 1080); */
         
-            fill(255);
+            /* fill(36,129,142);
             textSize(50);
             text('pantalla indica, todo está en orden, conteo regresivo', 50, 100);
-
+ */
             //barra de carga
-            fill(255);
+            fill(36,129,142);
             textSize(150);
             text(timer, 1920/2-35, 1080/2+80);
 
@@ -158,16 +161,17 @@ function draw() {
                 socket.off('verifica') 
             }
 
+            image(juego, 0, 0);
            
-            fill(0, 74, 232);
+            /* fill(0, 74, 232);
             rect(0, 0, 1920, 1080);
 
             fill(255);
             textSize(50);
-            text('Aqui sucede el juego', 50, 100);
+            text('Aqui sucede el juego', 50, 100); */
 
             //texto que registra el skipping del jugador
-            fill(255);
+            fill(36,129,142);
             textSize(150);
             text(contadorSkipping, 1920/2-35, 1080/2+80);
 
@@ -176,7 +180,7 @@ function draw() {
 
             
     }
-    console.log(contadorSkipping);
+    //console.log(contadorSkipping);
 }
 
 
