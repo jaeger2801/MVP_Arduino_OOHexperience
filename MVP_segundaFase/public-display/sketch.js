@@ -10,6 +10,16 @@ let contadorSkipping;
 let ancho;
 let timer;
 
+//Carga de interfaces/imagenes
+let presentacionProducto; //pantalla 0
+let presentacionExperiencia; //pantalla 1
+let instruciones; //pantalla 2
+let indicativoTapete; //pantalla 3
+let indicativoPreparación //pantalla 4
+let juego //pantalla 5
+let feedback //pantalla 6
+let agradecimiento //pantalla 7
+
 
 function setup() {
     frameRate(60);
@@ -190,22 +200,4 @@ socket.on('skipping', () => {
 
 
 
- /*socket.on('positions', (positions) => {
-    
-    character.x = map(positions.x, 0, 100, 0, windowWidth);
-    character.y = map(positions.y, 0, 100, 0, windowHeight);
-
-});
-
-
-socket.on('subirTamano', (subirTamano) => {
-    
-    character.tam +=5
-
-});
-
-socket.on('disminuirTamano', (disminuirTamano) => {
-    
-    character.tam -=5
-}); */
-
+ 
