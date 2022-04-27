@@ -25,7 +25,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 0;
+    pantalla = 5;
     contadorSkipping = 0;
     ancho = 100;
     timer = 5
@@ -129,7 +129,7 @@ function draw() {
             textSize(150);
             text(timer, 1920/2-35, 1080/2+80);
 
-            if(frameCount%65 == 0){
+            if(frameCount%80 == 0){
                 ancho -= 20;
                 
                 if(ancho <= 80){
@@ -171,10 +171,38 @@ function draw() {
             text('Aqui sucede el juego', 50, 100); */
 
             //texto que registra el skipping del jugador
-            fill(36,129,142);
-            textSize(150);
-            text(contadorSkipping, 1920/2-35, 1080/2+80);
+            fill(235,144,45);
+            noStroke();
+            textSize(80);
+            text('puntaje', 1920-550, 1080/2-80);
 
+            fill(36,129,142);
+            noStroke();
+            textSize(140);
+            text(contadorSkipping, 1920-550, 1080/2+80);
+
+            //texto indicativo de tiempo
+            fill(235,144,45);
+            noStroke();
+            textSize(80);
+            text('tiempo', 1920-550, 1080/2+200);
+
+            //barra de carga solid
+            fill(167,60,153);
+            noStroke();
+            rect(1920-550, 1080/2+250, ancho+300, 50, 50);
+
+             //barra de carga stroke
+             noFill();
+             stroke(167,60,153);
+             strokeWeight(5);
+             rect(1920-550, 1080/2+250, 400, 50, 50);
+
+             //framecount para el tiempo de carga
+             if(frameCount%67 == 0) {
+                 ancho -= 14;
+             }
+             
             
             break;
 
