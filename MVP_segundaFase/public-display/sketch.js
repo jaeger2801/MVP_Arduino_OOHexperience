@@ -33,6 +33,16 @@ function setup() {
 }
 
 function preload() {
+    //carga de imagenes
+    presentacionProducto = loadImage('data/Presentación producto (pantalla 0).png');
+    presentacionExperiencia = loadImage('data/Presentación Experiencia (pantalla 1).png');
+    instruciones = loadImage('data/Instrucciones (compressed).gif');
+    indicativoTapete = loadImage('data/Indicativo persona frente sensor (pantalla 3).png');
+    indicativoPreparación = loadImage('data/Conteo pre juego (pantalla 4).png');
+    juego = loadImage('data/Juego (compressed).gif');
+    feedback = loadImage('data/Feedback (pantalla 6).png');
+    agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
+
     //sonidoFeedback('')
     
 }
