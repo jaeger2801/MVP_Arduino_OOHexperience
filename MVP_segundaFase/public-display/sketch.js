@@ -22,6 +22,11 @@ function setup() {
 
 }
 
+function preload() {
+    //sonidoFeedback('')
+    
+}
+
 function draw() {
     background(255, 164, 162);
 
@@ -174,11 +179,12 @@ socket.on('cambio', (pantallaC) => {
 })
 
 //función de socket que tiene como función contar la cantidad de repeticiones que hace el jugador
-if(pantalla = 5){
+
 socket.on('skipping', () => {
+    if(pantalla == 5){
     contadorSkipping += 1;
+    }
 })
-}
 
    
 
