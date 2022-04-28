@@ -171,13 +171,6 @@ function draw() {
             }
 
             image(juego, 0, 0);
-           
-            /* fill(0, 74, 232);
-            rect(0, 0, 1920, 1080);
-
-            fill(255);
-            textSize(50);
-            text('Aqui sucede el juego', 50, 100); */
 
             //texto que registra el skipping del jugador
             fill(235,144,45);
@@ -229,32 +222,37 @@ function draw() {
             //1 repetición haciendo skiping representa 0.29 cal quemadas
             fill(235,144,45);
             noStroke();
-            textSize(60);
+            textSize(40);
             text(contadorSkipping*2, 444, 480);
-            text('Calorías quemadas', 522, 480);
+            text('Calorías quemadas', 522, 500);
 
             //metros recorridos,
             //en cada repetición se recorren 120 cm, aqui se hace la conversión a metros con base a las repeticiones
             fill(235,144,45);
             noStroke();
-            textSize(60);
+            textSize(40);
             text(contadorSkipping*120/100, 601, 624);
-            text('Métros recorridos', 690, 624);
+            text('Métros recorridos', 790, 644);
 
             //pasos dados
             //14 pasos por repetición aproximadamente
             fill(235,144,45);
             noStroke();
-            textSize(60);
+            textSize(40);
             text(contadorSkipping*14, 749, 785);
-            text('Pasos realizados', 838, 785);
+            text('Pasos realizados', 938, 805);
 
             
                 break;
 
-            
+            case 7:
+             //pantalla donde se muestra el codigo QR
+            //-------------------------------------------------------------------------------------- 
+             image(agradecimiento, 0, 0);
+             
+                break;
 
-            
+         
     }
     //console.log(contadorSkipping);
 }
