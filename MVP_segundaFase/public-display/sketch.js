@@ -30,7 +30,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 5;
+    pantalla = 0;
     contadorSkipping = 0;
     ancho = 100;
     ancho2 = 400
@@ -48,11 +48,11 @@ function preload() {
     juego = loadImage('data/Juego (compressed).gif');
     feedback = loadImage('data/Feedback (pantalla 6).png');
     agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
-
+/* 
     //carga de sonidos
     siguientePantalla = loadSound('');
     anteriorPantalla = loadSound('');
-    ejercicioFeedback = loadSound('');
+    ejercicioFeedback = loadSound(''); */
     
 }
 
