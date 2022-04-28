@@ -30,7 +30,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 0;
+    pantalla = 4;
     contadorSkipping = 0;
     ancho = 100;
     ancho2 = 400
@@ -49,13 +49,13 @@ function preload() {
     feedback = loadImage('data/Feedback (pantalla 6).png');
     agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
 
-    //carga de sonidos
     soundFormats('mp3', 'wav');
-    siguientePantalla = loadSound('dataSounds/continuar.mp3');
+    siguientePantalla = loadSound("dataSounds/continuar_1.wav");
     anteriorPantalla = loadSound('dataSounds/Regresar_1.wav');
-    ejercicioFeedback = loadSound('dataSounds/Feedback_1.wav');
-    
+    ejercicioFeedback = loadSound('dataSounds/Feedback_1.wav');  
 }
+
+
 
 function draw() {
     background(255, 164, 162);
@@ -63,6 +63,7 @@ function draw() {
     switch (pantalla) {
         //Pantalla presentación producto y experiencia 1
         //---------------------------------------------------------------------------------------------------------
+
         case 0: 
             
             image(presentacionProducto, 0, 0);
@@ -71,16 +72,13 @@ function draw() {
 
             fill(255);
             textSize(50);
-            text('Pantalla para presentación producto y experiencia 1', 50, 100);
+            //text('Pantalla para presentación producto y experiencia 1', 50, 100);
             break;
 
         //Pantalla presentación producto y experiencia 2
         //---------------------------------------------------------------------------------------------------------
         case 1:
-
-        if(pantalla == 1){
-            siguientePantalla.play();
-        }
+       
             image(presentacionExperiencia, 0, 0);
           
             break;
@@ -113,7 +111,6 @@ function draw() {
         case 4:
         //Pantalla para indicar que la persona está parada en el tapete
         //---------------------------------------------------------------------------------------------------------
-          
         image(indicativoPreparación,0,0);
 
                      //barra de carga
@@ -128,6 +125,10 @@ function draw() {
                     timer = 4;
                 }
 
+                /* if(timer == 4){
+                    ejercicioFeedback.play();
+                } */
+
                 if(ancho <= 60){
                     timer = 3;
                 }
@@ -141,7 +142,7 @@ function draw() {
                 }
 
                 if(ancho <= 0){
-                    pantalla = 5
+                    pantalla = 5;
                 }
             }
             break;
@@ -267,9 +268,11 @@ socket.on('cambio', (pantallaC) => {
 socket.on('skipping', () => {
     if(pantalla == 5){
     contadorSkipping += 1;
-    ejercicioFeedback.play();
-    }
-})
+    }  
+}
+)
+
+
 
    
 

@@ -10,10 +10,17 @@ const staticDisplay = express.static('public-display');
 app.use('/display', staticDisplay);
 app.use(express.json());
 
+const staticPhone = express.static('public-phone');
+app.use('/phone', staticPhone);
+app.use(express.json());
 
 ioServer.on('connection', (socket) => {
         //socket.broadcast.emit('positions', characterMessage);
         //socket.broadcast.emit('cambio1->2', pantalla1A2);
+
+    socket.on('cambioRegistro', (cambioAlRegistro) => {
+        socket.broadcast.emit('cambioRegistro', cambioAlRegistro);
+    })
 });
 
 

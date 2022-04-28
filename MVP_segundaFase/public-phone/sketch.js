@@ -1,24 +1,38 @@
-//const { redirect } = require("express/lib/response");
-
-//const { text } = require("express"); <--- dejo esto comentado, siempre que se crea un texto se crea esto que daña el código
-
 let socket = io();
 
+//aqui se van a crear los inputs
+let nameInput;
+let emailInput;
 
-function setup() {
-    frameRate(60);
-    createCanvas(1920, 1080);
-}
+//Declaración de pantallas
+let pantalla;
+
+//declaración de imagenes
+let formulario;
+let agradecimiento;
 
 function preload() {
-    //carga de imagenes
-    feedback = loadImage('data/Feedback (pantalla 6).png');
-    agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
+    formulario = loadImage("data/formulario.png");
+    agradecimiento = loadImage("data/Gracias.png");
+}
 
+function setup() {
+    pantalla = 0;
+
+    nameInput = createInput('');
+    emailInput = createInput('');
+
+    canvas = createCanvas(414, 896);
 }
 
 function draw() {
-    background(255, 164, 162);
+    background(414, 896);
+
+    switch (pantalla) {
+        case 0:
+            image(formulario, 0, 0);
+            break;
+    }
 
     
 }
