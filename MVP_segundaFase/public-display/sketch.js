@@ -247,14 +247,14 @@ socket.on('cambio', (pantallaC) => {
     switch(pantallaC){
 
         case "sumar":
-        if (pantalla < 7){
+        if (pantalla < 3 || pantalla > 5){
             pantalla += 1;
             siguientePantalla.play();
         }
          break;
      
         case "restar":
-        if (pantalla > 0){ 
+        if (pantalla > 0 && pantalla < 3){ 
             pantalla -= 1;
             anteriorPantalla.play();
         }
