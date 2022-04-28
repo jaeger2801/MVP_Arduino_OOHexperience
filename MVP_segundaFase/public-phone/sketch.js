@@ -30,10 +30,15 @@ function draw() {
 
     switch (pantalla) {
         case 0:
-            //rectangulo del boton con transparencia al 0%
+            //rectangulo del boton "enviar"
             fill(241, 179, 60);
             noStroke();
             rect(104, 655, 206, 49, 17);
+
+            //rectangulo del texto
+            fill(241, 179, 60);
+            noStroke();
+            rect(52, 813, 309, 19);
 
             image(formulario, 0, 0);
 
@@ -50,9 +55,38 @@ function draw() {
             
     
             break;
+        
+        case 1:
+            image(agradecimiento, 0, 0);
+
+            nameInput.hide();
+            emailInput.hide();
+
+            break;
     }
 
     
+}
+
+function mouseClicked() {
+    switch (pantalla) {
+        case 0:
+            //botón enviar
+            //rect(104, 655, 206, 49, 17);
+            if (mouseX > 104 && mouseX < 310 && mouseY > 655 && mouseY < 704) {
+                pantalla = 1;
+                socket.emit('cambioRegistro');
+            }
+
+            //botón saltar
+            //rect(52, 813, 309, 19);
+            if (mouseX > 52 && mouseX < 361 && mouseY > 813 && mouseY < 832) {
+                pantalla = 1;
+                socket.emit('cambioRegistro');
+            }
+            
+            break;
+    }
 }
 
 

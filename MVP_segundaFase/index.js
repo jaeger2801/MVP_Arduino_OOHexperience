@@ -21,6 +21,7 @@ ioServer.on('connection', (socket) => {
     socket.on('cambioRegistro', (cambioAlRegistro) => {
         socket.broadcast.emit('cambioRegistro', cambioAlRegistro);
     })
+
 });
 
 

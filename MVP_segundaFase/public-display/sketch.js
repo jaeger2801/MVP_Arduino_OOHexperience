@@ -30,7 +30,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 4;
+    pantalla = 0;
     contadorSkipping = 0;
     ancho = 100;
     ancho2 = 400
@@ -272,6 +272,9 @@ socket.on('skipping', () => {
 }
 )
 
+socket.on('cambioRegistro', (cambioAlRegistro) => {
+    pantalla = 0
+})
 
 
    
