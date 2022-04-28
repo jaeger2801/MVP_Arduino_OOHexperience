@@ -30,7 +30,25 @@ function draw() {
 
     switch (pantalla) {
         case 0:
+            //rectangulo del boton con transparencia al 0%
+            fill(241, 179, 60);
+            noStroke();
+            rect(104, 655, 206, 49, 17);
+
             image(formulario, 0, 0);
+
+            //Ingresa el nombre
+            nameInput.position(48, 381);
+            nameInput.size(319, 27);
+            nameInput.show();
+    
+            //Ingresa el correo
+            emailInput.position(48, 531);
+            emailInput.size(319, 27);
+            emailInput.show();
+
+            
+    
             break;
     }
 
