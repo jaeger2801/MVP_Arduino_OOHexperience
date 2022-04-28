@@ -30,7 +30,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 6;
+    pantalla = 0;
     contadorSkipping = 0;
     ancho = 100;
     ancho2 = 400
@@ -48,11 +48,12 @@ function preload() {
     juego = loadImage('data/Juego (compressed).gif');
     feedback = loadImage('data/Feedback (pantalla 6).png');
     agradecimiento = loadImage('data/Agradecimiento escanea QR (pantalla 7).png');
-/* 
+
     //carga de sonidos
-    siguientePantalla = loadSound('');
-    anteriorPantalla = loadSound('');
-    ejercicioFeedback = loadSound(''); */
+    soundFormats('mp3', 'wav');
+    siguientePantalla = loadSound('dataSounds/continuar.mp3');
+    anteriorPantalla = loadSound('dataSounds/Regresar_1.wav');
+    ejercicioFeedback = loadSound('dataSounds/Feedback_1.wav');
     
 }
 
@@ -77,13 +78,11 @@ function draw() {
         //---------------------------------------------------------------------------------------------------------
         case 1:
 
+        if(pantalla == 1){
+            siguientePantalla.play();
+        }
             image(presentacionExperiencia, 0, 0);
-           /*  fill(0);
-            rect(0, 0, 1920, 1080); */
-
-            /* fill(255);
-            textSize(50);
-            text('Pantalla para presentación producto y experiencia 2', 50, 100); */
+          
             break;
         
         case 2:
@@ -92,12 +91,8 @@ function draw() {
         //---------------------------------------------------------------------------------------------------------
             
             image(instruciones,0 ,0);
-            /* fill(219, 68, 109);
-            rect(0, 0, 1920, 1080); */
-
-           /*  fill(255);
-            textSize(50);
-            text('Pantalla para la presentación de las instruciones', 50, 100) */
+           
+            /*text('Pantalla para la presentación de las instruciones', 50, 100) */
             break;
 
         case 3:
@@ -112,12 +107,7 @@ function draw() {
 
         image(indicativoTapete, 0, 0);
 
-            /* fill(75, 74, 232);
-            rect(0, 0, 1920, 1080);
-
-            fill(255);
-            textSize(50);
-            text('Pantalla que indica que la persona se pare en el tapete', 50, 100); */
+           
             break;
 
         case 4:
@@ -126,14 +116,7 @@ function draw() {
           
         image(indicativoPreparación,0,0);
 
-           /*  fill(75, 74, 232);
-            rect(0, 0, 1920, 1080); */
-        
-            /* fill(36,129,142);
-            textSize(50);
-            text('pantalla indica, todo está en orden, conteo regresivo', 50, 100);
- */
-            //barra de carga
+                     //barra de carga
             fill(36,129,142);
             textSize(150);
             text(timer, 1920/2-35, 1080/2+80);
@@ -207,6 +190,7 @@ function draw() {
 
              if(ancho2 <= 0 ){
                  pantalla = 6;
+
              }
              
             
@@ -264,12 +248,14 @@ socket.on('cambio', (pantallaC) => {
         case "sumar":
         if (pantalla < 7){
             pantalla += 1;
+            siguientePantalla.play();
         }
          break;
      
         case "restar":
         if (pantalla > 0){ 
             pantalla -= 1;
+            anteriorPantalla.play();
         }
          break;
      }
@@ -281,6 +267,7 @@ socket.on('cambio', (pantallaC) => {
 socket.on('skipping', () => {
     if(pantalla == 5){
     contadorSkipping += 1;
+    ejercicioFeedback.play();
     }
 })
 
