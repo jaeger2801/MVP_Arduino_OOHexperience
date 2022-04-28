@@ -30,7 +30,7 @@ function setup() {
     frameRate(60);
     createCanvas(1920, 1080);
 
-    pantalla = 0;
+    pantalla = 6;
     contadorSkipping = 0;
     ancho = 100;
     ancho2 = 400
@@ -223,24 +223,24 @@ function draw() {
             fill(235,144,45);
             noStroke();
             textSize(40);
-            text(contadorSkipping*2, 444, 480);
-            text('Calorías quemadas', 522, 500);
+            text(contadorSkipping*2, 444, 490+20);
+            text('Calorías quemadas', 583, 490+20);
 
             //metros recorridos,
             //en cada repetición se recorren 120 cm, aqui se hace la conversión a metros con base a las repeticiones
             fill(235,144,45);
             noStroke();
             textSize(40);
-            text(contadorSkipping*120/100, 601, 624);
-            text('Métros recorridos', 790, 644);
+            text(contadorSkipping*120/100, 601, 634+20);
+            text('Métros recorridos', 740, 634+20);
 
             //pasos dados
             //14 pasos por repetición aproximadamente
             fill(235,144,45);
             noStroke();
             textSize(40);
-            text(contadorSkipping*14, 749, 785);
-            text('Pasos realizados', 938, 805);
+            text(contadorSkipping*14, 729, 795+20);
+            text('Pasos realizados', 878, 795+20);
 
             
                 break;
@@ -249,7 +249,7 @@ function draw() {
              //pantalla donde se muestra el codigo QR
             //-------------------------------------------------------------------------------------- 
              image(agradecimiento, 0, 0);
-             
+
                 break;
 
          
@@ -262,7 +262,7 @@ socket.on('cambio', (pantallaC) => {
     switch(pantallaC){
 
         case "sumar":
-        if (pantalla < 3){
+        if (pantalla < 7){
             pantalla += 1;
         }
          break;
