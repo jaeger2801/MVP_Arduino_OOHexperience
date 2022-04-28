@@ -254,7 +254,7 @@ socket.on('cambio', (pantallaC) => {
          break;
      
         case "restar":
-        if (pantalla > 0 && pantalla < 3){ 
+        if (pantalla > 0 || pantalla < 2 || pantalla >5){ 
             pantalla -= 1;
             anteriorPantalla.play();
         }
